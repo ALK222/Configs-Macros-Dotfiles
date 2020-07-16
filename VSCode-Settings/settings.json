@@ -1,0 +1,36 @@
+{
+    "workbench.colorTheme": "Community Material Theme Palenight High Contrast",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.preferredDarkColorTheme": "Community Material Theme Palenight High Contrast",
+    // Code action kinds to be run on save.
+    "editor.codeActionsOnSave": {},
+    // Controls whether the editor should render the inline color decorators and color picker.
+    "editor.colorDecorators": true,
+    // Controls whether `editor.tabSize#` and `#editor.insertSpaces` will be automatically detected when a file is opened based on the file contents.
+    "editor.detectIndentation": true,
+    // Controls the font family.
+    "editor.fontFamily": "'IBM 3270', Consolas, monospace",
+    "editor.fontLigatures": true,
+    // Controls the font size in pixels.
+    "editor.fontSize": 17,
+    // Controls the font weight.
+    "editor.fontWeight": "normal",
+    // Controls whether the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.
+    "editor.formatOnPaste": true,
+    // Format a file on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.
+    "editor.formatOnSave": true,
+    // Controls whether the editor should automatically format the line after typing.
+    "editor.formatOnType": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "files.trimFinalNewlines": true,
+    "editor.mouseWheelZoom": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": true,
+    "files.insertFinalNewline": true,
+    "editor.letterSpacing": 0.2,
+    "editor.lineHeight": 22,
+    "files.autoSave": "afterDelay",
+    "editor.renderWhitespace": "boundary"
+}
