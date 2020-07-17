@@ -31,6 +31,8 @@
     "files.insertFinalNewline": true,
     "editor.letterSpacing": 0.2,
     "editor.lineHeight": 22,
-    "files.autoSave": "afterDelay",
-    "editor.renderWhitespace": "boundary"
+    "editor.renderWhitespace": "boundary",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.clean.subfolder.enabled": true
 }
