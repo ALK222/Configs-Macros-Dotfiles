@@ -1,9 +1,11 @@
 {
+    //EDITOR AND WORKBENCH
     "workbench.colorTheme": "Dracula",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.preferredDarkColorTheme": "Community Material Theme Palenight High Contrast",
+    "workbench.startupEditor": "newUntitledFile",
     // Code action kinds to be run on save.
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
@@ -34,13 +36,14 @@
     "editor.letterSpacing": 0.2,
     "editor.lineHeight": 22,
     "editor.renderWhitespace": "boundary",
+    "workbench.colorCustomizations": {
+        "activityBar.foreground": "#ff79c6"
+    },
+    //LATEX STUFF
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.latex.autoClean.run": "onBuilt",
     "latex-workshop.latex.clean.subfolder.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
-    "workbench.colorCustomizations": {
-        "activityBar.foreground": "#ff79c6"
-    },
     "latex-workshop.intellisense.package.enabled": true,
     "latex-workshop.intellisense.unimathsymbols.enabled": true,
     "latex-workshop.latex.clean.fileTypes": [
@@ -103,5 +106,8 @@
                 "rnw2pdf"
             ]
         }
-    ]
+    ],
+    //JAVA STUFF
+    "java.semanticHighlighting.enabled": true,
+    "python.languageServer": "Microsoft"
 }
