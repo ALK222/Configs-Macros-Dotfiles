@@ -19,7 +19,7 @@ Compendium of configuration files, macros and dotfiles for some programs I use.
 
 This config jason will change some parameter of the new [Windows Terminal](https://github.com/microsoft/terminal). It will change to the [Dracula color scheme](https://draculatheme.com/windows-terminal/) with a minor change (cursor will be pink)
 
-```json
+```jsonc
 {
   //rest of the theme
   "cursorColor": "#FF79C6"
@@ -28,7 +28,7 @@ This config jason will change some parameter of the new [Windows Terminal](https
 
 Add a custom profile to the terminal that points to a custom code folder where all my code is stored.
 
-```json
+```jsonc
 {
   //Directly to the code folder
   "guid": "{47c1f1b1-9926-4cba-b4fb-c7a5f2467903}",
@@ -44,7 +44,7 @@ Add a custom profile to the terminal that points to a custom code folder where a
 
 For the default configs I use the vintage cursor and acrylic background with no scrollbar
 
-```json
+```jsonc
 {
   "defaults": {
     // Put settings here that you want to apply to all profiles.
