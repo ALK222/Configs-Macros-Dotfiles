@@ -10,6 +10,9 @@ Compendium of configuration files, macros and dotfiles for some programs I use.
 
    1. [Windows terminal](#Windows-Terminal)
 
+2. [Cross Platform](#Cross-Platform)
+   1. [Visual Studio Code](#Visual-Studio-Code)
+
 ## Windows Configs
 
 ### [Windows Terminal](https://github.com/ALK222/Configs-Macros-Dotfiles/tree/master/Windows-Terminal)
@@ -23,7 +26,7 @@ This config jason will change some parameter of the new [Windows Terminal](https
 }
 ```
 
-add a custom profile to the terminal that points to a custom code folder where all my code is stored.
+Add a custom profile to the terminal that points to a custom code folder where all my code is stored.
 
 ```json
 {
@@ -54,3 +57,23 @@ For the default configs I use the vintage cursor and acrylic background with no 
   }
 }
 ```
+
+### [Corsair iCUE](https://github.com/ALK222/Configs-Macros-Dotfiles/tree/master/iCUE-Profiles)
+
+RGB profiles for [Corsair iCUE](https://www.corsair.com/es/es/icue) for K95 Platinum keyboard, Glaive RGB mouse and Void Pro RGB headset.
+
+## Cross Platform
+
+### [Visual Studio Code](https://github.com/ALK222/Configs-Macros-Dotfiles/tree/master/VSCode-Settings)
+
+Config file for [Visual Studio Code](https://github.com/microsoft/vscode), using the [Dracula color scheme](https://draculatheme.com/visual-studio-code) with a change for the acttivity bar, [matherial icon theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) and the [IBM 3270 font](https://github.com/rbanffy/3270font)
+
+```json
+{
+  "workbench.colorCustomizations": {
+    "activityBar.foreground": "#ff79c6"
+  }
+}
+```
+
+This settings include settings for LaTeX, Java and Python
