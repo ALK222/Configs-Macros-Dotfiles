@@ -19,7 +19,7 @@ Compendium of configuration files, macros and dotfiles for some programs I use.
 
 This config jason will change some parameter of the new [Windows Terminal](https://github.com/microsoft/terminal). It will change to the [Dracula color scheme](https://draculatheme.com/windows-terminal/) with a minor change (cursor will be pink)
 
-```javascript
+```jsonc
 {
   //rest of the theme
   "cursorColor": "#FF79C6"
