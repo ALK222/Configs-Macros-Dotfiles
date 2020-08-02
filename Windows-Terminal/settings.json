@@ -31,8 +31,7 @@
       "experimental.retroTerminalEffect": false,
       "scrollbarState": "hidden",
       "useAcrylic": true,
-      "acrylicOpacity": 0.7,
-      "suppressApplicationTitle": true
+      "acrylicOpacity": 0.7
     },
     "list": [
       {
