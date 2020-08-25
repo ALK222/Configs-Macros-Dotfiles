@@ -1,4 +1,11 @@
 {
+  //  ________ __     __   ___
+  // |   __   |  |   |  | /  /
+  // |  |__|  |  |   |  |/  /  Alejandro Barrachina (A.L.K.)
+  // |   __   |  |   |     <
+  // |  |  |  |  |___|  |\  \  https://github.com/ALK222
+  // |__|  |__|______|__| \__\
+  // VS Code config file. Based on the generated settings.
   //EDITOR AND WORKBENCH
   "workbench.colorTheme": "Dracula",
   "editor.suggestSelection": "first",
