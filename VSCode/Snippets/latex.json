@@ -1,0 +1,37 @@
+{
+	//  ________ __     __   ___
+	// |   __   |  |   |  | /  /
+	// |  |__|  |  |   |  |/  /  Alejandro Barrachina (A.L.K.)
+	// |   __   |  |   |     <   
+	// |  |  |  |  |___|  |\  \  https://github.com/ALK222
+	// |__|  |__|______|__| \__\
+	// Snippets for LaTex on VS Code
+	"Itemize with textbf": {
+		"prefix": "itemizeB",
+		"body": [
+			"begin{itemize}",
+			"   \\item\\texbf{$0}",
+			"\\end{itemize}",
+		],
+		"description": "Makes an itemize enviroment with textbf by default",
+	},
+	"Item with textbf": {
+		"prefix": "itemB",
+		"body": "item\\textbf{$0}",
+		"description": "Item with textbf"
+	},
+	"Itemize with inline math": {
+		"prefix": "itemizeM",
+		"body": [
+			"begin{itemize}",
+			"   \\item $$0$",
+			"\\end{itemize}",
+		],
+		"description": "Makes an itemize enviroment with inline math by default",
+	},
+	"Item with inline math": {
+		"prefix": "itemM",
+		"body": "item $$0$",
+		"description": "Item with inline math"
+	}
+}
