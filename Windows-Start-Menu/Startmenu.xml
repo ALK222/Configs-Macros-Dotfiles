@@ -1,3 +1,12 @@
+<!-- 
+ ________ __     __   ___
+|   __   |  |   |  | /  /
+|  |__|  |  |   |  |/  /  Alejandro Barrachina (A.L.K.)
+|   __   |  |   |     <
+|  |  |  |  |___|  |\  \  https://github.com/ALK222
+|__|  |__|______|__| \__\
+Start menu layout for windows 10.
+-->
 <LayoutModificationTemplate xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout" Version="1" xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification">
   <LayoutOptions StartTileGroupCellWidth="6" />
   <DefaultLayoutOverride>
@@ -36,6 +45,3 @@
     </StartLayoutCollection>
   </DefaultLayoutOverride>
 </LayoutModificationTemplate>
-
-<!-- Export the menu:Export-Startlayout -path PATH_TO_FILE\Startmenu.xml -->
-<!-- Import the menu:Import-StartLayout -LayoutPath PATH_TO_FILE\Startmenu.xml -MountPath $env:SystemDrive\ -->
