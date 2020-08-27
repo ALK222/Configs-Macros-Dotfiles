@@ -5,6 +5,7 @@
 # |  |  |  |  |___|  |\  \  https://github.com/ALK222
 # |__|  |__|______|__| \__\
 # i3 window manager config file based on the arcolinux generated one.
+
 # Set mod key (Mod1 = ALT, Mod4 = Win) 
 set $mod Mod4
 
@@ -20,7 +21,7 @@ floating_modifier $mod
 
 # Start a terminal
 set $myTerm alacritty
-bindsym $mod+Enter exec $myTerm
+bindsym $mod+Return exec $myTerm
 # Kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+q kill
@@ -32,15 +33,21 @@ bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+f exec firefox
 bindsym $mod+c exec code
 bindsym $mod+g exec GitKraken
-bindsym $mod+Shift+Enter thunar
+bindsym $mod+Shift+Return exec --no-startup-id thunar
 
 # Audio stuff
-exec --no-startup-id volumenicon
-exec --no-startup-id pulseaudio
-bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-bindsym XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
+bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
+#https://github.com/acrisci/playerctl/
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+#bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+#bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+#bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+#bindsym XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 
 # Focus on mouse
 focus_follows_mouse no
@@ -56,7 +63,7 @@ bindsym $mod+Up focus up
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Right move right
-bindstm $mod+Shift+Up move up
+bindsym $mod+Shift+Up move up
 
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -88,6 +95,44 @@ workspace $ws5 output $firstMonitor
 workspace $ws6 output $secondMonitor
 workspace $ws7 output $firstMonitor
 workspace $ws8 output $secondMonitor
+
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# Resize
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 
 #Backup exit
 #Press ctrl+alt+x - check toolbar for next choices
@@ -121,20 +166,79 @@ bindsym $mod+Shift+c reload
 
 
 # Autostart
+# USER APPLICATIONS TO START AT BOOT
+
+# ArcoLinux Welcome App
+exec --no-startup-id dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
+
 # Autotiling
-exec --no-startup-id autotiling
-# Auth dialog
+exec_always --no-startup-id autotiling
+
+#browser
+#exec --no-startup-id vivaldi-stable
+for_window [class="Vivaldi-stable"] focus
+
+#text-editor
+#exec --no-startup-id geany
+#exec --no-startup-id atom
+
+#file manager
+#exec --no-startup-id thunar
+
+#Mail clients
+#exec --no-startup-id evolution
+
+#Music
+#exec --no-startup-id spotify
+for_window [class="Spotify"] focus
+
+
+
+# TRAY APPLICATIONS
+
+# applications that are not installed will not start
+# you may see a wheel - hashtag out things you do not want
+
+#Authentication dialog
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 # Updater
 exec --no-startup-id pamac-tray
-# Network
+
+# bluetooth
+#exec --no-startup-id blueberry-tray
+
+# network
 exec --no-startup-id nm-applet
-# Polybar
+
+# num lock activated
+exec_always --no-startup-id numlockx on
+
+# dropbox
+#exec --no-startup-id dropbox start
+
+# insync
+#exec --no-startup-id insync start
+
+# volume
+#exec --no-startup-id pasystray
+exec --no-startup-id volumeicon
+
+#variety
+#exec --no-startup-id variety
+
+# clipman
+#exec --no-startup-id xfce4-clipman
+
+#Conky
+exec --no-startup-id conky -c ~/.config/i3/system-overview
+
+#feh sets wallpaper
+exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
+
+#Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
-# Sys applications
-exec --no-startup-id xfce4-power-manager &
-exec --no-startup-id /usr/lib/xfce/notifyd/xfce-notifyd &
 
 # Screenshots
 bindsym Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
@@ -211,3 +315,33 @@ bar {
   }
   mode invisible
 }
+
+# Tiling parameters
+# orientation for new workspaces
+default_orientation horizontal
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+# Super + F in arcolinux is execute thunar
+bindsym F11 fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# qwerty/azerty issue for letter z
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
