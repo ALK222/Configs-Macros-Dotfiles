@@ -1,0 +1,213 @@
+#  ________ __     __   ___
+# |   __   |  |   |  | /  /
+# |  |__|  |  |   |  |/  /  Alejandro Barrachina (A.L.K.)
+# |   __   |  |   |     <
+# |  |  |  |  |___|  |\  \  https://github.com/ALK222
+# |__|  |__|______|__| \__\
+# i3 window manager config file based on the arcolinux generated one.
+# Set mod key (Mod1 = ALT, Mod4 = Win) 
+set $mod Mod4
+
+# Font
+font pango:Noto Mono Regular 13
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel 2
+new_float normal
+
+# Mouse+$mod to drag floating windows
+floating_modifier $mod
+
+# Start a terminal
+set $myTerm alacritty
+bindsym $mod+Enter exec $myTerm
+# Kill focused window
+bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+
+# Start program launcher
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+
+# Program shortucts
+bindsym $mod+f exec firefox
+bindsym $mod+c exec code
+bindsym $mod+g exec GitKraken
+bindsym $mod+Shift+Enter thunar
+
+# Audio stuff
+exec --no-startup-id volumenicon
+exec --no-startup-id pulseaudio
+bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+
+# Focus on mouse
+focus_follows_mouse no
+
+# Change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Right focus right
+bindsym $mod+Up focus up
+
+
+# Move focused
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Right move right
+bindstm $mod+Shift+Up move up
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Workspace next / previous
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace previous
+
+# Workspace names
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+
+# Dual monitor setup
+set $firtsMonitor DP-0
+set $seconMonitor DP-2
+
+
+workspace $ws1 output $firstMonitor
+workspace $ws2 output $secondMonitor
+workspace $ws3 output $firstMonitor
+workspace $ws4 output $seconMonitor
+workspace $ws5 output $firstMonitor
+workspace $ws6 output $secondMonitor
+workspace $ws7 output $firstMonitor
+workspace $ws8 output $secondMonitor
+
+#Backup exit
+#Press ctrl+alt+x - check toolbar for next choices
+bindsym control+mod1+X mode "$mode_system"
+
+set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
+mode "$mode_system" {
+    bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
+    bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
+    bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
+    bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+# ArcoLinux Logout
+bindsym $mod+Shift+e exec --no-startup-id arcolinux-logout
+bindsym $mod+X exec --no-startup-id arcolinux-logout
+
+
+# Reload i3 inplace
+bindsym $mod+Shift+r restart
+
+# Reload config file
+bindsym $mod+Shift+c reload
+
+
+# Autostart
+# Autotiling
+exec --no-startup-id autotiling
+# Auth dialog
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# Updater
+exec --no-startup-id pamac-tray
+# Network
+exec --no-startup-id nm-applet
+# Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
+
+# Sys applications
+exec --no-startup-id xfce4-power-manager &
+exec --no-startup-id /usr/lib/xfce/notifyd/xfce-notifyd &
+
+# Screenshots
+bindsym Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
+bindsym Control+Print exec --no-startup-id xfce4-screenshooter
+bindsym Control+Shift+Print exec --no-startup-id gnome-screenshot -i
+
+#Popups during fullscreen mode
+popup_during_fullscreen smart
+
+# i3 gaps
+
+for_window [class="^.*"] border pixel 2
+gaps inner 5
+gaps outer 5
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Theme(Dracula)
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
+
+bar {
+  colors {
+    background #282A36
+    statusline #F8F8F2
+    separator  #44475A
+
+    focused_workspace  #44475A #44475A #F8F8F2
+    active_workspace   #282A36 #44475A #F8F8F2
+    inactive_workspace #282A36 #282A36 #BFBFBF
+    urgent_workspace   #FF5555 #FF5555 #F8F8F2
+    binding_mode       #FF5555 #FF5555 #F8F8F2
+  }
+  mode invisible
+}
