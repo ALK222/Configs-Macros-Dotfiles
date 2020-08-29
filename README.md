@@ -10,7 +10,9 @@ Compendium of configuration files, macros and dotfiles for some programs I use.
 
    1. [Windows terminal](#Windows-Terminal)
 
-2. [Cross Platform](#Cross-Platform)
+2. [Linux](#Linux)
+
+3. [Cross Platform](#Cross-Platform)
    1. [Visual Studio Code](#Visual-Studio-Code)
 
 ## Windows Configs
@@ -61,6 +63,8 @@ For the default configs I use the vintage cursor and acrylic background with no 
 ### [Corsair iCUE](https://github.com/ALK222/Configs-Macros-Dotfiles/tree/master/iCUE-Profiles)
 
 RGB profiles for [Corsair iCUE](https://www.corsair.com/es/es/icue) for K95 Platinum keyboard, Glaive RGB mouse and Void Pro RGB headset.
+
+## Linux
 
 ## Cross Platform
 
