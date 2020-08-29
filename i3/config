@@ -237,7 +237,7 @@ exec --no-startup-id conky -c ~/.config/i3/system-overview
 exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
 
 #Polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec_always --no-startup-id sh ~/.config/polybar/launch.sh &
 
 
 # Screenshots
