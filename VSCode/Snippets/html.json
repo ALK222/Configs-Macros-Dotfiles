@@ -1,0 +1,23 @@
+{
+  //  ________ __     __   ___
+  // |   __   |  |   |  | /  /
+  // |  |__|  |  |   |  |/  /  Alejandro Barrachina (A.L.K.)
+  // |   __   |  |   |     <
+  // |  |  |  |  |___|  |\  \  https://github.com/ALK222
+  // |__|  |__|______|__| \__\
+  // Snippets for HTML on VS Code
+
+  "On/Off switch": {
+    "prefix": "<switch>",
+    "body": [
+      "<div class=\"onoffswitch\">",
+      "  <input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch\" tabindex=\"0\" checked>",
+      "  <label class=\"onoffswitch-label\" for=\"myonoffswitch\">",
+      "    <span class=\"onoffswitch-inner\"></span>",
+      "    <span class=\"onoffswitch-switch\"></span>",
+      "  </label>",
+      "</div>"
+    ],
+    "description": "On/Off switch for HTML, add the css to the style sheet to work properly"
+  }
+}
