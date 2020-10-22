@@ -9,8 +9,8 @@
 	"Itemize with textbf": {
 		"prefix": "itemizeB",
 		"body": [
-			"begin{itemize}",
-			"   \\item\\texbf{$0}",
+			"\\begin{itemize}",
+			"   \\item\\textbf{$0}",
 			"\\end{itemize}",
 		],
 		"description": "Makes an itemize enviroment with textbf by default",
@@ -23,7 +23,7 @@
 	"Itemize with inline math": {
 		"prefix": "itemizeM",
 		"body": [
-			"begin{itemize}",
+			"\\begin{itemize}",
 			"   \\item $$0$",
 			"\\end{itemize}",
 		],
@@ -33,5 +33,15 @@
 		"prefix": "itemM",
 		"body": "item $$0$",
 		"description": "Item with inline math"
+	},
+	"Listing": {
+		"prefix": "lst",
+		"body": [
+			"\\begin{figure}[$0]",
+			"   \\centering",
+			"   \\lstinputlisting[$2]{$1}",
+			"\\end{figure}"
+		],
+		"description": "Makes a listing enviroment with centering"
 	}
 }
