@@ -106,9 +106,21 @@
   "python.languageServer": "Microsoft",
   "C_Cpp.updateChannel": "Insiders",
   "files.exclude": {
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true
-  }
+    "**/.DS_Store": false,
+    "**/.git": false,
+    "**/.hg": false,
+    "**/.svn": false,
+    "**/CVS": false
+  },
+  "editor.renameOnType": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "java.configuration.checkProjectSettingsExclusions": false,
+  "cmake.configureOnOpen": false,
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext"
+  ]
 }

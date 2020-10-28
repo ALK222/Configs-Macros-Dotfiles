@@ -10,37 +10,37 @@
 		"prefix": "itemizeB",
 		"body": [
 			"\\begin{itemize}",
-			"   \\item\\textbf{$0}",
+			"   \\item\\textbf{$1}$0",
 			"\\end{itemize}",
 		],
 		"description": "Makes an itemize enviroment with textbf by default",
 	},
 	"Item with textbf": {
 		"prefix": "itemB",
-		"body": "item\\textbf{$0}",
+		"body": "item\\textbf{$1}$0",
 		"description": "Item with textbf"
 	},
 	"Itemize with inline math": {
 		"prefix": "itemizeM",
 		"body": [
 			"\\begin{itemize}",
-			"   \\item $$0$",
+			"   \\item $$1$$0",
 			"\\end{itemize}",
 		],
 		"description": "Makes an itemize enviroment with inline math by default",
 	},
 	"Item with inline math": {
 		"prefix": "itemM",
-		"body": "item $$0$",
+		"body": "item $$1$$0",
 		"description": "Item with inline math"
 	},
 	"Listing": {
 		"prefix": "lst",
 		"body": [
-			"\\begin{figure}[$0]",
+			"\\begin{figure}[$3]",
 			"   \\centering",
 			"   \\lstinputlisting[$2]{$1}",
-			"\\end{figure}"
+			"\\end{figure}$0"
 		],
 		"description": "Makes a listing enviroment with centering"
 	}
