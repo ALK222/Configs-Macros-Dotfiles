@@ -54,7 +54,6 @@
   "latex-workshop.intellisense.package.enabled": true,
   "latex-workshop.intellisense.unimathsymbols.enabled": true,
   "latex-workshop.latex.clean.fileTypes": [
-    "*.aux",
     "*.bbl",
     "*.blg",
     "*.idx",
@@ -63,7 +62,6 @@
     "*.lot",
     "*.out",
     "*.toc",
-    "*.acn",
     "*.acr",
     "*.alg",
     "*.glg",
