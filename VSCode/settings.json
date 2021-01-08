@@ -118,7 +118,16 @@
   "cmake.configureOnOpen": false,
   "spellright.documentTypes": [
     "markdown",
-    "latex",
-    "plaintext"
-  ]
+    "latex"
+  ],
+  "spellright.language": [
+    "es"
+  ],
+  "java.refactor.renameFromFileExplorer": "autoApply",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }
