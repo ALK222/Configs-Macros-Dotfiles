@@ -101,7 +101,7 @@
   ],
   //JAVA STUFF
   "java.semanticHighlighting.enabled": true,
-  "python.languageServer": "Microsoft",
+  "python.languageServer": "Pylance",
   "C_Cpp.updateChannel": "Insiders",
   "files.exclude": {
     "**/.DS_Store": false,
@@ -129,5 +129,8 @@
   },
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
   }
 }
