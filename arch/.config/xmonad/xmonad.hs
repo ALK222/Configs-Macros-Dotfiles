@@ -123,7 +123,6 @@ customAutoStart = do
       spawn "killall trayer"
       spawn "lxsession"
       spawn "picom"
-      spawn "discord"
       spawnOnce "picom"
       spawnOnce "nm-applet"
       spawnOnce "volumeicon"

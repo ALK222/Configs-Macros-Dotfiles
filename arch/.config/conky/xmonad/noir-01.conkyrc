@@ -1,6 +1,6 @@
 --[[
 ###################################
-##  noir-01.conkyrc (XMonad)  ##
+##  dracula-01.conkyrc (XMonad)  ##
 ###################################
 ]]
 
@@ -45,7 +45,7 @@ conky.config = {
 	default_graph_height = 40,					-- default is 25
 	default_graph_width = 153,					-- default is 0 - full width
 	default_shade_color = '#000000',			-- default shading colour
-	default_outline_color = '#000000',			-- default outline colour
+	default_outline_color = '#ffffff',			-- default outline colour
 	draw_borders = false,						-- draw borders around text
 	draw_graph_borders = true,					-- draw borders around graphs
 	draw_shades = false,						-- draw shades
@@ -81,12 +81,12 @@ conky.config = {
 	own_window_hints = 'undecorated,below,above,sticky,skip_taskbar,skip_pager',  -- if own_window true - just hints - own_window_type sets it
 
 
-	--Colors (Dracula)
-	color0 = '#bd93f9',
+	--Colors (Noir)
+	color0 = '#ffffff',
 	color1 = '#f8f8f2',
-	color2 = '#8be9fd',
-	color2 = '#8be9fd',
-	color3 = '#50fa7b',
+	color2 = '#ffffff',
+	color2 = '#ffffff',
+	color3 = '#f8f8f8',
 };
 
 conky.text = [[
