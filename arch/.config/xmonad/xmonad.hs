@@ -383,6 +383,7 @@ myKeys c =
   , ("<XF86AudioLowerVolume>", addName "Lower vol"    $ spawn "amixer set Master 5%- unmute")
   , ("<XF86AudioRaiseVolume>", addName "Raise vol"    $ spawn "amixer set Master 5%+ unmute")
   , ("<Print>", addName "Take screenshot" $ spawn "xfce4-screenshooter -f ")
+  , ("<F2>", addName "Xrandr" $ spawn "xrandr --auto")
   ]
 
 subtitle' ::  String -> ((KeyMask, KeySym), NamedAction)
