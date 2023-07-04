@@ -128,6 +128,9 @@ customAutoStart = do
       spawnOnce "volumeicon"
       spawnOnce "blueberry-tray"
       spawnOnce "xfce4-power-manager --daemon"
+      spawnOnce "optimus-manager-qt"
+      spawnOnce "lalcal --daemon"
+      spawnOnce "xrandr --auto"
 
       spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
       spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
