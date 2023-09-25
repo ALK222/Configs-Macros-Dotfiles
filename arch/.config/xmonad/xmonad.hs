@@ -333,7 +333,7 @@ myKeys c =
   , ("M-S-d", addName "Launch Dmenu" $ spawn "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")
   , ("M-f", addName "Launch web browser"       $ spawn customBrowser)
   , ("M-c", addName "Launch code"              $ spawn customEditor)
-  , ("M-G", addName "Launch Gitkraken"         $ spawn "gitkraken")]
+  , ("M-g", addName "Launch Gitkraken"         $ spawn "gitkraken")]
 
   ^++^ subKeys "Monitors"
   [ ("M-.", addName "Switch focus to next monitor" nextScreen)
