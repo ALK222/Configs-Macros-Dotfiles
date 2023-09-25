@@ -57,9 +57,9 @@ import           XMonad.Layout.LayoutModifier
 import           XMonad.Layout.LimitWindows          (decreaseLimit,
                                                       increaseLimit,
                                                       limitWindows)
+import qualified XMonad.Layout.MultiToggle           as MT (Toggle (..))
 import           XMonad.Layout.MultiToggle           (EOT (EOT), mkToggle,
                                                       single, (??))
-import qualified XMonad.Layout.MultiToggle           as MT (Toggle (..))
 import           XMonad.Layout.MultiToggle.Instances (StdTransformers (MIRROR, NBFULL, NOBORDERS))
 import           XMonad.Layout.NoBorders
 import           XMonad.Layout.Renamed
@@ -122,15 +122,19 @@ customAutoStart = do
       spawn "killall conky"
       spawn "killall trayer"
       spawn "lxsession"
-      spawn "picom"
-      spawnOnce "picom"
+      spawnOnce "picom --config $HOME/.xmonad/scripts/picom.conf &"
       spawnOnce "nm-applet"
+      spawnOnce "pamac-tray"
       spawnOnce "volumeicon"
       spawnOnce "blueberry-tray"
       spawnOnce "xfce4-power-manager --daemon"
       spawnOnce "optimus-manager-qt"
       spawnOnce "lalcal --daemon"
       spawnOnce "xrandr --auto"
+      spawnOnce "numlockx on"
+      spawnOnce "xsetroot -cursor_name left_ptr"
+      spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+      spawnOnce "/usr/lib/xfce4/notifyd/xfce4-notifyd"
 
       spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
       spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
