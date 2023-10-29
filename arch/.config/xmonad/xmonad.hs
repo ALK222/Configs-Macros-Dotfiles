@@ -122,7 +122,7 @@ customAutoStart = do
       spawn "killall conky"
       spawn "killall trayer"
       spawn "lxsession"
-      spawnOnce "picom --config $HOME/.xmonad/scripts/picom.conf &"
+      spawnOnce "picom -f"
       spawnOnce "nm-applet"
       spawnOnce "pamac-tray"
       spawnOnce "volumeicon"
@@ -137,8 +137,10 @@ customAutoStart = do
       spawnOnce "/usr/lib/xfce4/notifyd/xfce4-notifyd"
 
       spawn ("sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc")
+      spawn ("$HOME/.config/eww/eww/bar/launch_bar")
       spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22")
       spawnOnce ("feh --randomize --bg-fill ~/.config/xmonad/wallpapers/" ++ colorScheme ++ "/*")
+
       setWMName "LG3D"
 
 --Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.
@@ -221,6 +223,7 @@ myShowWNameTheme = def
   , swn_bgcolor           = "#1c1f24"
   , swn_color             = "#ffffff"
   }
+
 
 -- The layout hook
 myLayoutHook = avoidStruts
@@ -329,7 +332,7 @@ myKeys c =
 
   ^++^ subKeys "Favorite programs"
   [ ("M-<Return>", addName "Launch terminal"   $ spawn customTerminal)
-  , ("M-S-<Return>", addName "Launch file Browser" $ spawn "dolphin")
+  , ("M-S-<Return>", addName "Launch file Browser" $ spawn "thunar")
   , ("M-S-d", addName "Launch Dmenu" $ spawn "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")
   , ("M-f", addName "Launch web browser"       $ spawn customBrowser)
   , ("M-c", addName "Launch code"              $ spawn customEditor)
@@ -389,7 +392,8 @@ myKeys c =
   [ ("<XF86AudioMute>", addName "Toggle audio mute"   $ spawn "amixer set Master toggle")
   , ("<XF86AudioLowerVolume>", addName "Lower vol"    $ spawn "amixer set Master 5%- unmute")
   , ("<XF86AudioRaiseVolume>", addName "Raise vol"    $ spawn "amixer set Master 5%+ unmute")
-  , ("<Print>", addName "Take screenshot" $ spawn "xfce4-screenshooter -f ")
+  , ("<Print>", addName "Take screenshot" $ spawn "xfce4-screenshooter -r -c ")
+  , ("S-<Print>", addName "Save Screenshot" $ spawn "xfce4-screenshooter -r")
   , ("<F2>", addName "Xrandr" $ spawn "xrandr --auto")
   ]
 
@@ -410,7 +414,8 @@ showKeybindings x = addName "Show Keybindings" $ io $ do
 main :: IO ()
 main = do
   -- Launching three instances of xmobar on their monitors.
-  xmproc0 <- spawnPipe ("xmobar -x 0 $HOME/.config/xmobar/" ++ colorScheme ++ "-xmobarrc")
+
+  xmproc0 <- spawnPipe ("xmobar -x 0 $HOME/.config/xmobar/" ++ colorScheme ++ "-xmobarrc ")
   xmproc1 <- spawnPipe ("xmobar -x 1 $HOME/.config/xmobar/" ++ colorScheme ++ "-xmobarrc")
   xmproc2 <- spawnPipe ("xmobar -x 2 $HOME/.config/xmobar/" ++ colorScheme ++ "-xmobarrc")
   xmonad $ addDescrKeys' ((mod4Mask, xK_F1), showKeybindings) myKeys $ ewmh $ docks $ def

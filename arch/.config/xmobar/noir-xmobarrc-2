@@ -1,0 +1,41 @@
+-- Xmobar (http://projects.haskell.org/xmobar/)
+-- This is one of the xmobar configurations for DTOS.
+-- This config is packaged in the DTOS repo as 'dtos-xmobar'
+-- Color scheme: Noir
+-- Dependencies:
+   -- otf-font-awesome
+   -- ttf-mononoki
+   -- ttf-ubuntu-font-family
+   -- htop
+   -- pacman (Arch Linux)
+   -- trayer
+
+Config { font            = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Mononoki:pixelsize=11:antialias=true:hinting=true"
+                           , "xft:Font Awesome 6 Free Solid:pixelsize=12"
+                           , "xft:Font Awesome 6 Brands:pixelsize=12"
+                           ]
+       , bgColor      = "#000000"
+       , fgColor      = "#ffffff"
+       -- Position TopSize and BottomSize take 3 arguments:
+       --   an alignment parameter (L/R/C) for Left, Right or Center.
+       --   an integer for the percentage width, so 100 would be 100%.
+       --   an integer for the minimum pixel height for xmobar, so 24 would force a height of at least 24 pixels.
+       --   NOTE: The height should be the same as the trayer (system tray) height.
+       , position       = TopSize L 100 24
+       , lowerOnStart = True
+       , hideOnStart  = False
+       , allDesktops  = True
+       , persistent   = True
+       , commands = [
+                        -- Time and date
+                    Run Date "<fn=2>\xf017</fn>  %b %d %Y - (%H:%M) " "date" 50
+                        -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
+                    , Run Com ".config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20
+                        -- Prints out the left side items such as workspaces, layout, etc.
+                    , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "<action=`dm-run`><icon=haskell_20.xpm/> </action>   <fc=#666666>|</fc> %UnsafeStdinReader% }{ <box type=Bottom width=2 mb=2 color=#ffffff><fc=#ffffff>%date%</fc></box>"
+       }
