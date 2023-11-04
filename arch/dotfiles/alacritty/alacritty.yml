@@ -1,0 +1,63 @@
+window:
+  dynamic_title: true
+  opacity: 0.8
+
+cursor:
+  style:
+    shape: Beam
+    blinking: On
+  blink_interval: 750
+  blink_timeout: 5
+  unfocused_hollow: true
+
+scrolling:
+  history: 50000
+
+selection:
+  save_to_clipboard: true
+
+# Font configuration
+font:
+  
+  normal:
+    family: "3270 Nerd Font"
+    style: Regular
+
+  # Bold font face
+  bold:
+    family: "3270 Nerd Font"
+    style: Bold
+
+  # Italic font face
+  italic:
+    family: "3270 Nerd Font"
+    style: Italic
+
+  # Bold italic font face
+  bold_italic:
+    family: "3270 Nerd Font"
+    style: Bold Italic
+
+  # Point size
+  size: 17.0
+
+bell:
+  animation: EaseOutExpo
+  color: '#ffffff'
+  duration: 0
+
+# Clickable URLs
+hints:
+  enabled:
+    - regex: "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\" {-}\\^⟨⟩`]+"
+      command: xdg-open
+      post_processing: true
+      mouse:
+        enabled: true
+        mods: Control
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+import:
+  - "~/.config/alacritty/themes/dracula.yml" # Theme
+  

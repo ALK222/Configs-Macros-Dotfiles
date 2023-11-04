@@ -1,0 +1,40 @@
+{
+    "$schema": "./schema.json",
+    "configs": [
+        {
+            "app_name": "conky",
+            "source_path": "~/.config/conky",
+            "is_folder": true
+        },
+        {
+            "app_name": "picom",
+            "source_path": "~/.config/picom",
+            "is_folder": true
+        },
+        {
+            "app_name": "xmobar",
+            "source_path": "~/.config/xmobar",
+            "is_folder": true
+        },
+        {
+            "app_name": "xmonad",
+            "source_path": "~/.config/xmonad",
+            "is_folder": true
+        },
+        {
+            "app_name": "zsh",
+            "source_path": "~/.zshrc",
+            "is_folder": false
+        },
+        {
+            "app_name": "starship",
+            "source_path": "~/.config/starship.toml",
+            "is_folder": false
+        },
+        {
+            "app_name": "alacritty",
+            "source_path": "~/.config/alacritty",
+            "is_folder": true
+        }
+    ]
+}

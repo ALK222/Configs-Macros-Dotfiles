@@ -1,0 +1,42 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Configs",
+    "description": "Set of linux dotfiles",
+    "type": "object",
+    "properties": {
+        "configs": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "app_name": {
+                        "description": "Name of the program and future name of the folder",
+                        "type": "string"
+                    },
+                    "source_path": {
+                        "description": "Path to restore/copy",
+                        "type": "string"
+                    },
+                    "is_folder": {
+                        "description": "Defines if it is a folder or a single file",
+                        "type": "boolean",
+                        "default": true
+                    }
+                },
+                "required": [
+                    "app_name",
+                    "source_path",
+                    "is_folder"
+                ],
+                "additionalProperties": false
+            }
+        },
+        "$schema": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "configs"
+    ],
+    "additionalProperties": false
+}
