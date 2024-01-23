@@ -50,6 +50,11 @@
       "app_name": "rofi",
       "source_path": "~/.config/rofi",
       "is_folder": true
+    },
+    {
+      "app_name": "wallpapers",
+      "source_path": "~/.config/wallpapers",
+      "is_folder": true
     }
   ]
 }
