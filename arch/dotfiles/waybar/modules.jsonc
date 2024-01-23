@@ -1,0 +1,77 @@
+{
+    // Modules configuration
+    "clock#time": {
+      "format": "<span color=\"#7aa2f7\"> </span>{:%H:%M:%S}",
+      "interval": 1
+    },
+    "clock#date": {
+      "format": "<span color=\"#7aa2f7\"> </span>{:%d/%m/%Y}",
+      "tooltip-format": "<tt>{calendar}</tt>",
+      "calendar": {
+        "mode": "month",
+        "mode-mon-col": 4,
+        "weeks-pos": "right",
+        "on-scroll": 1,
+        "on-click-right": "mode",
+        "format": {
+          "months": "<span color='#c0caf5'><b>{}</b></span>",
+          "days": "<span color='#c0caf5'><b>{}</b></span>",
+          "weeks": "<span color='#7dcfff'><b>W{}</b></span>",
+          "weekdays": "<span color='#ff9e64'><b>{}</b></span>",
+          "today": "<span color='#f7768e'><b><u>{}</u></b></span>"
+        }
+      },
+      "interval": 360
+    },
+    "battery": {
+      "bat": "BAT1",
+      "interval": 60,
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon} {capacity}%",
+      "format-icons": [
+        "<span color=\"#f7768e\"> </span>",
+        "<span color=\"#f7768e\"> </span>",
+        "<span color=\"#7aa2f7\"> </span>",
+        "<span color=\"#7aa2f7\"> </span>",
+        "<span color=\"#7aa2f7\"> </span>"
+      ],
+      "format-charging": "<span color=\"#e0af68\">󱐌</span> {capacity}%"
+    },
+    "cpu": {
+      "format": "<span color=\"#7aa2f7\"> </span>{usage}%",
+      "interval": 5
+    },
+    "memory": {
+      "format": "<span color=\"#7aa2f7\"> </span>{used}GiB",
+      "interval": 5
+    },
+    "temperature": {
+      "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+      "critical-threshold": 80,
+      "format": "<span color=\"#7aa2f7\"> </span>{temperatureC}°C",
+      "format-critical": "<span color=\"#f7768e\"> </span>{temperatureC}°C",
+      "interval": 5
+    },
+    "wireplumber": {
+      "scroll-step": 5, // %, can be a float
+      "format": "<span color=\"#7aa2f7\">{icon} </span>{volume}%",
+      "format-muted": "<span color=\"#f7768e\"> </span>Muted",
+      "format-icons": ["", "", ""],
+      "on-click": "pavucontrol"
+    },
+    "hyprland/window": {
+      "max-length": 96
+    },
+    "tray": {
+      "icon-size": 22,
+      "spacing": 6
+    },
+    "hyprland/workspaces": {
+      "disable-scroll": true,
+      "on-click": "activate"
+    }
+  }
+  

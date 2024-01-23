@@ -122,7 +122,7 @@ customAutoStart = do
       spawn "killall conky"
       spawn "killall trayer"
       spawn "lxsession"
-      spawnOnce "picom -f"
+      spawn "picom -f"
       spawnOnce "nm-applet"
       spawnOnce "pamac-tray"
       spawnOnce "volumeicon"
