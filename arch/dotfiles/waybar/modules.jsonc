@@ -72,6 +72,11 @@
     "hyprland/workspaces": {
       "disable-scroll": true,
       "on-click": "activate"
-    }
+    },
+    "pulseaudio/slider": {
+      "min": 0,
+      "max": 100,
+      "orientation": "horizontal"
+  }
   }
   
